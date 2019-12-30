@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../SortingVisualizer/SortingVisualizer.css';
+import * as sortingAlgorithms from '../sortingAlgorithms/sortingAlgorithms';
 
 class SortingVisualizer extends Component {
     state = {
@@ -25,15 +26,30 @@ class SortingVisualizer extends Component {
     }// End of func resetArray
 
     mergeSort = () => {
+        const javaScriptSortedArray = this.state.array.slice().sort((a, b) => a - b);
+        // const sortedArray = sortingAlgorithms.mergeSort(this.state.array);
+        //  console.log(sortedArray);
+        console.log('ff');
 
+
+        // console.log(this.arraysAreEqual(javaScriptSortedArray, sortedArray));
     }
+
+    arraysAreEqual(arrayOne, arrayTwo) {
+        if (arrayOne.length !== arrayTwo.length) return false;
+        for (let i = 0; i < arrayOne.length; i++) {
+            if (arrayOne[i] !== arrayTwo[i]) return false;
+        }
+        return true;
+    }
+
     quickSort = () => {
 
     }
-    heapNewSort = () => {
+    heapSort = () => {
 
     }
-    bubbleNewSort = () => {
+    bubbleSort = () => {
 
     }
 
@@ -49,17 +65,13 @@ class SortingVisualizer extends Component {
                     <button onClick={() => this.resetArray()}>Generate New Array</button>
                     <button onClick={() => this.mergeSort()}>Merge Sort</button>
                     <button onClick={() => this.quickSort()}>Quick Sort</button>
-                    <button onClick={() => this.heapNewSort()}>Heap New Sort</button>
-                    <button onClick={() => this.bubbleNewSort()}>Bubble New Sort</button>
+                    <button onClick={() => this.heapSort()}>Heap Sort</button>
+                    <button onClick={() => this.bubbleSort()}>Bubble Sort</button>
                 </div>
-
-
             </div>
         )
 
     }
-
-
 
 }// End class SortingVisualizer
 
